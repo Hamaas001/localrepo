@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --brand-primary: #cc0000; /* ARJ red */
+  --brand-dark: #111111;
+  --brand-light: #f7f7f7;
+  --background: var(--brand-light);
+  --foreground: #111111;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand-primary);
+  --color-brand-foreground: #ffffff;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--brand-dark);
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors;
+}
+.btn-primary {
+  @apply bg-[--color-brand] text-[--color-brand-foreground] hover:opacity-90;
+}
+.container {
+  @apply mx-auto max-w-6xl px-4;
+}
